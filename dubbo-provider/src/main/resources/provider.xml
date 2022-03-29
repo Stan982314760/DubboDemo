@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!--指定应用名称-->
+    <dubbo:application name="dubbo-provider"></dubbo:application>
+
+    <!--指定注册中心地址-->
+    <dubbo:registry protocol="zookeeper" address="192.168.138.128:2181"></dubbo:registry>
+
+    <!--指定暴露服务的协议和端口-->
+    <dubbo:protocol name="dubbo" port="20880"></dubbo:protocol>
+
+    <!--指定要暴露的服务-->
+    <dubbo:service interface="com.stan.service.NameService" ref="nameInterImpl"></dubbo:service>
+
+    <!--暴露服务真正实现类-->
+    <bean id="nameInterImpl" class="com.stan.service.impl.NameServiceImpl"></bean>
+</beans>
