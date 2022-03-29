@@ -1,0 +1,3 @@
+red=com.stan.spi.service.impl.RedCar
+black=com.stan.spi.service.impl.BlackCar
+com.stan.spi.service.impl.CarWrapper
